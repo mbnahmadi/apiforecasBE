@@ -9,6 +9,7 @@ urlpatterns = [
     # path('api_csv/<str:name>/', GetAllCSVData.as_view()),
     # path('api/', GetListData.as_view()),
     path('api/', GetListData),
+    path('name/',get_name),
 ]
 
 # for item in items:

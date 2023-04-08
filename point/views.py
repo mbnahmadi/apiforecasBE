@@ -9,8 +9,16 @@ from rest_framework.response import Response
 from .serializers import DataSerializer
 import os
 from django.http import Http404
+from django.http import HttpResponse
 
 items = os.listdir("./None")
+
+
+
+def get_name(self):
+    for name in items:
+        print(name)
+    #return HttpResponse(name)
 
 def make_dict(data):
     for i in range(len(data)):
