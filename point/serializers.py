@@ -4,7 +4,8 @@ from rest_framework import serializers
 from .views import *
 
 
-
+class NameSerializer (serializers.Serializer):
+    name = serializers.CharField(max_length=200)
 
 
 class DataSerializer (serializers.Serializer):
