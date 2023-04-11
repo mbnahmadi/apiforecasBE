@@ -6,7 +6,7 @@ from .point_name import *
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import DataSerializer
+from .serializers import DataSerializer, NameSerializer
 import os
 from django.http import Http404
 from django.http import HttpResponse
@@ -58,7 +58,7 @@ def make_dict(data):
 
 
 
-
+from django.core import serializers
 class GetAllData(APIView):
     def get_object(self, name):
         try:
@@ -72,8 +72,12 @@ class GetAllData(APIView):
         data_dic = []
         make_dict(data)
         query = data_dic
-        serializer = DataSerializer(query, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        serializer = DataSerializer(query, many=True).data
+        
+        name_dic = { 'name' : name}
+        name_ser = NameSerializer(name_dic).data
+        serializer.append(name_ser)
+        return Response(serializer, status=status.HTTP_200_OK)
     
     
 
