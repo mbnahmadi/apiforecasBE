@@ -16,7 +16,6 @@ class DataSerializer (serializers.Serializer):
     v6 = serializers.DecimalField(max_digits=10, decimal_places=2)
     v7 = serializers.DecimalField(max_digits=10, decimal_places=2)
 
-
  
     
 

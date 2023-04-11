@@ -68,6 +68,7 @@ class GetAllData(APIView):
     def get(self, request, name, format=None):
         global data_dic
         data= np.genfromtxt((f"None\{name}.mean"),dtype=None, delimiter="")
+        # print(data) 
         data_dic = []
         make_dict(data)
         query = data_dic
